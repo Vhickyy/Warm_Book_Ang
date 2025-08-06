@@ -1,0 +1,25 @@
+<nav class="bg-white sticky top-0 z-[100]">
+  <div
+    class="py-4 w-[95%] max-w-[1200px] mx-auto flex justify-between items-center"
+  >
+    <img src="assets/logo.svg" alt="gi" />
+
+    <div class="hidden md:flex gap-6">
+      @for(item of navItems;track $index){
+      <div [routerLink]="item.path" class="cursor-pointer">
+        <p class="font-semibold text-sm text-[#810EA7]">{{ item.name }}</p>
+        <div
+          routerLinkActive="rounded-full h-2 w-2 bg-[#810EA7] mx-auto"
+          [routerLinkActiveOptions]="{ exact: true }"
+        ></div>
+      </div>
+      }
+    </div>
+
+    <app-button
+      text="Sign Up"
+      styles="text-white bg-[#810EA7] px-6 py-2 rounded-lg text-sm cursor-pointer"
+      routerLink="/auth/login"
+    />
+  </div>
+</nav>

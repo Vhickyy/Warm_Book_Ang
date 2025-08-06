@@ -1,0 +1,54 @@
+<app-auth-layout>
+  <img src="assets/reg_logo.svg" alt="logo" class="w-fit mx-auto" />
+  <p class="font-semibold text-white">Create new account</p>
+  <form
+    class="bg-white rounded-xl w-[90%] mx-auto max-w-[50rem] overflow-hidden"
+  >
+    <!-- large screens -->
+    <div
+      class="relative hidden md:flex transition-all duration-300 ease-in-out bg-[#E69FFF]"
+    >
+      <div
+        class="absolute top-0 bottom-0 bg-gradient-to-tr from-[#DD71FF] via-[#AF41C7] to-[#71007C] z-[0] rounded-ss-xl rounded-r-full"
+        [ngStyle]="{ width: (activeStep() + 1) * (100 / steps.length) + '%' }"
+      ></div>
+      @for (item of steps; track $index) {
+      <div
+        class="flex items-center gap-4 py-3 w-[33.33%] justify-center relative z-[1] font-semibold text-sm"
+      >
+        <div
+          class="flex w-4 h-4 justify-center items-center rounded-full bg-[#0000009E] text-white p-4"
+          [ngClass]="{ 'bg-white': activeStep() >= $index }"
+        >
+          <p [ngClass]="{ 'text-[#810EA7]': activeStep() >= $index }">
+            {{ $index + 1 }}
+          </p>
+        </div>
+        <p [ngClass]="{ 'text-white': activeStep() >= $index }">{{ item }}</p>
+      </div>
+      }
+    </div>
+
+    <!-- mobile -->
+    <div
+      class="md:hidden flex justify-center items-center gap-4 bg-gradient-to-tr from-[#DD71FF] via-[#AF41C7] to-[#71007C] py-3 text-sm text-white rounded-t-xl font-semibold"
+    >
+      <div
+        class="bg-white text-[#810EA7] flex w-4 h-4 justify-center items-center rounded-full p-4"
+      >
+        <p>{{ activeStep() + 1 }}</p>
+      </div>
+      <p>{{ steps[activeStep()] }}</p>
+    </div>
+
+    <div class="py-8 px-6 md:px-12">
+      @switch (activeStep()) { @case (0) {
+      <app-step1 />
+      } @case (1) {
+      <app-step2 />
+      } @case (2) {
+      <app-step3 />
+      } }
+    </div>
+  </form>
+</app-auth-layout>
