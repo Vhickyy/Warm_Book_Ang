@@ -1,8 +1,9 @@
+import { CommonModule } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-button',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './button.html',
 })
 export class Button {

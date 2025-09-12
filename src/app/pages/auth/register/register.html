@@ -9,8 +9,9 @@
       class="relative hidden md:flex transition-all duration-300 ease-in-out bg-[#E69FFF]"
     >
       <div
-        class="absolute top-0 bottom-0 bg-gradient-to-tr from-[#DD71FF] via-[#AF41C7] to-[#71007C] z-[0] rounded-ss-xl rounded-r-full"
-        [ngStyle]="{ width: (activeStep() + 1) * (100 / steps.length) + '%' }"
+        class="absolute top-0 bottom-0 bg-gradient-to-tr from-[#DD71FF] via-[#AF41C7] to-[#71007C] z-[0] rounded-ss-xl"
+        [ngStyle]="{ width: (activeStep + 1) * (100 / steps.length) + '%' }"
+        [ngClass]="activeStep == 2 ? 'rounded-se-lg' : 'rounded-r-full'"
       ></div>
       @for (item of steps; track $index) {
       <div
@@ -18,13 +19,13 @@
       >
         <div
           class="flex w-4 h-4 justify-center items-center rounded-full bg-[#0000009E] text-white p-4"
-          [ngClass]="{ 'bg-white': activeStep() >= $index }"
+          [ngClass]="{ 'bg-white': activeStep >= $index }"
         >
-          <p [ngClass]="{ 'text-[#810EA7]': activeStep() >= $index }">
+          <p [ngClass]="{ 'text-[#810EA7]': activeStep >= $index }">
             {{ $index + 1 }}
           </p>
         </div>
-        <p [ngClass]="{ 'text-white': activeStep() >= $index }">{{ item }}</p>
+        <p [ngClass]="{ 'text-white': activeStep >= $index }">{{ item }}</p>
       </div>
       }
     </div>
@@ -36,18 +37,18 @@
       <div
         class="bg-white text-[#810EA7] flex w-4 h-4 justify-center items-center rounded-full p-4"
       >
-        <p>{{ activeStep() + 1 }}</p>
+        <p>{{ activeStep + 1 }}</p>
       </div>
-      <p>{{ steps[activeStep()] }}</p>
+      <p>{{ steps[activeStep] }}</p>
     </div>
 
     <div class="py-8 px-6 md:px-12">
-      @switch (activeStep()) { @case (0) {
-      <app-step1 />
+      @switch (activeStep) { @case (0) {
+      <app-step1 [(step)]="activeStep" />
       } @case (1) {
-      <app-step2 />
+      <app-step2 [(step)]="activeStep" />
       } @case (2) {
-      <app-step3 />
+      <app-step3 [(step)]="activeStep" />
       } }
     </div>
   </form>

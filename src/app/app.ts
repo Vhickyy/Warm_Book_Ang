@@ -1,4 +1,10 @@
-import { Component } from '@angular/core';
+import {
+  afterNextRender,
+  Component,
+  ElementRef,
+  OnInit,
+  viewChild,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './shared/footer/footer';
 

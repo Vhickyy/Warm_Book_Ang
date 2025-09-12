@@ -1,8 +1,13 @@
-<nav class="bg-white sticky top-0 z-[100]">
+<nav class="bg-white sticky top-0 z-[100] shadow-lg">
   <div
-    class="py-4 w-[95%] max-w-[1200px] mx-auto flex justify-between items-center"
+    class="py-4 w-[90%] max-w-[1200px] mx-auto flex justify-between items-center"
   >
-    <img src="assets/logo.svg" alt="gi" />
+    <img
+      src="assets/logo.svg"
+      routerLink="/"
+      alt="logo"
+      class="cursor-pointer"
+    />
 
     <div class="hidden md:flex gap-6">
       @for(item of navItems;track $index){
@@ -16,10 +21,20 @@
       }
     </div>
 
-    <app-button
-      text="Sign Up"
-      styles="text-white bg-[#810EA7] px-6 py-2 rounded-lg text-sm cursor-pointer"
-      routerLink="/auth/login"
-    />
+    <div class="flex gap-4 items-center">
+      <div class="relative">
+        <div
+          class="absolute top-[-.7rem] right-0 bg-[#810EA7] text-white w-5 text-[10px] flex justify-center items-center rounded-full"
+        >
+          <p>2</p>
+        </div>
+        <img src="assets/cart.svg" alt="cart" class="h-8 w-8" />
+      </div>
+      <app-button
+        text="Sign Up"
+        class="text-white bg-[#810EA7] px-6 py-2 rounded-lg text-sm cursor-pointer"
+        routerLink="/auth/login"
+      />
+    </div>
   </div>
 </nav>

@@ -20,7 +20,7 @@ export class Nav {
     },
     {
       name: 'Books',
-      path: '/book',
+      path: '/books',
     },
     {
       name: 'Journals',

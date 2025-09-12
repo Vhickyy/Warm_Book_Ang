@@ -27,6 +27,6 @@ export const books: IBook[] = [
     price: '23400',
     rating: 0,
     author: 'Vee',
-    img: '/assets/book.png',
+    img: '/assets/genhero.png',
   },
 ];

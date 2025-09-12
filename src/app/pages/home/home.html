@@ -44,7 +44,7 @@
   </div>
 </section>
 <div
-  class="w-[95%] max-w-[1200px] mx-auto flex gap-4 text-center justify-around py-4"
+  class="w-[90%] max-w-[1200px] mx-auto flex gap-4 text-center justify-around py-4"
 >
   @for (item of headerDetail; track $index) {
   <div class="flex flex-col md:flex-row gap-2 md:gap-4 items-center">
@@ -54,18 +54,39 @@
   }
 </div>
 
+<section class="relative py-8">
+  <h3
+    class="text-white text-center mb-12 font-bold font-[playball] text-3xl z-[1] relative"
+  >
+    Hot & Trending
+  </h3>
+
+  <div class="overflow-x-hidden relative z-[1] w-full max-w-[1400px] mx-auto">
+    <div class="flex gap-16 w-full">
+      <div class="flex gap-8 md:gap-16 justify-between animate">
+        @for (item of bookData; track $index) {
+        <app-book [book]="item" class="z-[1] w-[12rem] md:w-[17rem]" />
+        }
+      </div>
+      <div class="flex gap-8 md:gap-16 justify-between animate">
+        @for (item of bookData; track $index) {
+        <app-book [book]="item" class="z-[1] w-[12rem] md:w-[17rem]" />
+        }
+      </div>
+    </div>
+  </div>
+  <img src="assets/genhero.png" alt="" class="absolute top-0 bottom-0 h-full" />
+</section>
+
 <section class="bg-[#F8F9FA]">
   <div
-    class="w-[95%] max-w-[1200px] mx-auto py-12 md:py-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+    class="w-[90%] max-w-[1200px] mx-auto py-12 md:py-20 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
   >
     @for (book of bookData; track $index) {
     <app-book [book]="book" />
-    } @empty {
-    <p>No Book Available</p>
     }
   </div>
 </section>
-
 <div
   class="relative py-20 px-4 md:py-[8rem] overflow-hidden flex flex-col gap-6 md:gap-8 justify-center items-center"
 >
@@ -89,10 +110,13 @@
   <p
     class="text-white z-[3] font-[playball] text-3xl md:text-4xl text-center xl:text-6xl"
   >
-    Dive Into The World of Warm Books
+    Dive Into The World of Warm Books.
   </p>
   <div class="bg-white z-[3] rounded-md">
-    <div class="flex gap-2 bg-[#810EA7] m-[2px] p-2 rounded-md">
+    <div
+      class="flex gap-2 bg-[#810EA7] m-[2px] p-2 rounded-md"
+      routerLink="/books"
+    >
       <app-button text="Explore Book Library" />
       <img src="assets/search-icon.svg" alt="search-icon" />
     </div>

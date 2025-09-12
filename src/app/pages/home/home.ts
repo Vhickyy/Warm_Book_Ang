@@ -3,10 +3,11 @@ import { Button } from '../../UI/button/button';
 import { Nav } from '../../shared/nav/nav';
 import { Book } from '../../components/book/book';
 import { books } from '../../../data/books';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [Button, Nav, Book],
+  imports: [Button, Nav, Book, RouterLink],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

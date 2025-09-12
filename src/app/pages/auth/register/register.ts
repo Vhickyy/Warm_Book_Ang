@@ -13,5 +13,5 @@ import { Step2 } from './components/step2/step2';
 })
 export class Register {
   steps = ['Personal Information', 'Interest', 'Preview details'];
-  activeStep = signal(0);
+  activeStep = 0;
 }
