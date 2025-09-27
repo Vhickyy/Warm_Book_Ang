@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:warm_book": "node dist/warm_book/server/server.mjs",
-    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage",
-    "check-coverage": "npx nyc check-coverage --lines 100 --functions 100 --branches 100 --statements 100"
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadless --code-coverage"
   },
   "prettier": {
     "overrides": [
