@@ -46,7 +46,7 @@ export const routes: Routes = [
     component: Cart,
   },
   {
-    path: 'journal',
+    path: 'cart',
     component: Cart,
   },
 ];

@@ -4,10 +4,11 @@ import { books } from '../../../data/books';
 import { Book } from '../../components/book/book';
 import { CommonModule } from '@angular/common';
 import { Select } from '../../reusable/select/select';
+import { Footer } from '../../shared/footer/footer';
 
 @Component({
   selector: 'app-books',
-  imports: [GenHero, Book, CommonModule, Select],
+  imports: [GenHero, Book, CommonModule, Select, Footer],
   templateUrl: './books.html',
   styleUrl: './books.css',
 })

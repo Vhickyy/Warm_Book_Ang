@@ -4,10 +4,11 @@ import { Nav } from '../../shared/nav/nav';
 import { Book } from '../../components/book/book';
 import { books } from '../../../data/books';
 import { RouterLink } from '@angular/router';
+import { Footer } from '../../shared/footer/footer';
 
 @Component({
   selector: 'app-home',
-  imports: [Button, Nav, Book, RouterLink],
+  imports: [Button, Nav, Book, RouterLink, Footer],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
