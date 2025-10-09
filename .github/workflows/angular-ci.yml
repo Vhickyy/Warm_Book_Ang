@@ -1,10 +1,10 @@
-name: Angular CI
+name: book-ci
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: ["*"]
+  pull_request:
+    branches: ["*"]
 
 jobs:
   test-and-build:
