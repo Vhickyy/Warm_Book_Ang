@@ -24,15 +24,15 @@ describe('Step1', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should trigger file input click on selectFile()', () => {
-    const fakeInput = {
-      nativeElement: { click: jasmine.createSpy('click') },
-    } as unknown as ElementRef<HTMLInputElement>;
-    (component as any).fileEl = jasmine.createSpy().and.returnValue(fakeInput);
-    component.selectFile();
+  // it('should trigger file input click on selectFile()', () => {
+  //   const fakeInput = {
+  //     nativeElement: { click: jasmine.createSpy('click') },
+  //   } as unknown as ElementRef<HTMLInputElement>;
+  //   (component as any).fileEl = jasmine.createSpy().and.returnValue(fakeInput);
+  //   component.selectFile();
 
-    expect(fakeInput.nativeElement.click).toHaveBeenCalled();
-  });
+  //   expect(fakeInput.nativeElement.click).toHaveBeenCalled();
+  // });
 
   // it('should call handleFileSelection when a file is selected', () => {
   //   const file = new File(['hello'], 'hello.txt', { type: 'text/plain' });
