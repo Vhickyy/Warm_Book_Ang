@@ -8,9 +8,8 @@ describe('Select', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Select]
-    })
-    .compileComponents();
+      imports: [Select],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Select);
     component = fixture.componentInstance;
@@ -19,5 +18,15 @@ describe('Select', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call changeFilter', () => {
+    component.changeFilter('science');
+    expect(component.filterBy()).toBe('science');
+  });
+
+  it('should call toggle show', () => {
+    component.toggleShow();
+    expect(component.show()).toBeTrue();
   });
 });

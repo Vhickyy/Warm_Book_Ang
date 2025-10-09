@@ -9,5 +9,5 @@ import { Nav } from '../../shared/nav/nav';
   styleUrl: './gen-hero.css',
 })
 export class GenHero {
-  text: any = input.required<string>();
+  text = input.required<string>();
 }

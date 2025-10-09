@@ -16,8 +16,4 @@ export class Books {
   bookData = books;
   filter = '';
   filters = ['science', 'arts', 'anime', 'life', 'fun', 'romance'];
-
-  constructor() {
-    effect(() => console.log(this.filter, 'jj'));
-  }
 }

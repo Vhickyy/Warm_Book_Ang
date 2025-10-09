@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { provideRouter } from '@angular/router';
 import { Register } from './register';
 
 describe('Register', () => {
@@ -8,9 +8,9 @@ describe('Register', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Register]
-    })
-    .compileComponents();
+      imports: [Register],
+      providers: [provideRouter([])],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Register);
     component = fixture.componentInstance;
@@ -19,5 +19,14 @@ describe('Register', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should call registerUser on the RegisterService when form is submitted', () => {
+    const mockEvent = new Event('submit');
+    spyOn(mockEvent, 'preventDefault');
+
+    component.registerUser(mockEvent);
+
+    expect(mockEvent.preventDefault).toHaveBeenCalled();
   });
 });

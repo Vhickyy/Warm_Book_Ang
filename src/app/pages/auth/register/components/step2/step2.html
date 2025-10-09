@@ -5,6 +5,7 @@
 </p>
 
 <div class="flex flex-wrap justify-center gap-4 mt-8 md:w-[80%] mx-auto">
+  <!-- [formGroup]="registerForm()" -->
   @for (item of interest; track $index) {
   <div
     class="bg-[#AD62C6] font-semibold text-sm rounded-lg px-4 py-2 text-white cursor-pointer"
@@ -15,11 +16,11 @@
 </div>
 
 <div class="flex justify-between mt-6">
-  <p (click)="changeStep(0)" class="cursor-pointer">Back</p>
+  <p (click)="regService.activeStep.set(0)" class="cursor-pointer">Back</p>
   <button
     class="text-white bg-[#810EA7] py-2 rounded-lg px-8 font-semibold cursor-pointer text-sm"
     type="button"
-    (click)="changeStep(2)"
+    (click)="regService.activeStep.set(2)"
   >
     Skip
   </button>

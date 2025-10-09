@@ -1,4 +1,6 @@
-import { Component, model } from '@angular/core';
+import { Component, inject, model, output } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { RegisterService } from '../../register-service';
 
 @Component({
   selector: 'app-step3',
@@ -7,9 +9,5 @@ import { Component, model } from '@angular/core';
   styleUrl: './step3.css',
 })
 export class Step3 {
-  step = model(0);
-
-  changeStep(value: number) {
-    this.step.set(value);
-  }
+  regService = inject(RegisterService);
 }

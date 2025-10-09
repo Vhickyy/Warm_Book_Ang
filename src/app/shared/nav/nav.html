@@ -11,13 +11,13 @@
 
     <div class="hidden md:flex gap-6">
       @for(item of navItems;track $index){
-      <div [routerLink]="item.path" class="cursor-pointer">
-        <p class="font-semibold text-sm text-[#810EA7]">{{ item.name }}</p>
-        <div
-          routerLinkActive="rounded-full h-2 w-2 bg-[#810EA7] mx-auto"
+      <a [routerLink]="item.path" class="font-semibold text-sm text-[#810EA7]">
+        {{ item.name }}
+        <span
+          routerLinkActive="rounded-full h-2 w-2 bg-[#810EA7] mx-auto block"
           [routerLinkActiveOptions]="{ exact: true }"
-        ></div>
-      </div>
+        ></span>
+      </a>
       }
     </div>
 

@@ -1,17 +1,18 @@
-<h5 class="text-center font-semibold text-[#000000C4]">
-  Personal Informationss
-</h5>
+<h5 class="text-center font-semibold text-[#000000C4]">Personal Information</h5>
 <p class="text-center text-sm text-[#00000091]">
   Set up your account details in less than five minutes
 </p>
-<div class="flex flex-col md:flex-row items-center gap-4 md:gap-6 pt-4 md:pt-8">
+<div
+  class="flex flex-col md:flex-row items-center gap-4 md:gap-6 pt-4 md:pt-8"
+  [formGroup]="regService.registerForm"
+>
   <div class="mx-auto w-[20%]">
     <div
       class="w-20 h-20 md:w-[6rem] md:h-[6rem] border-2 border-[#810EA780] rounded-lg mx-auto"
       (click)="selectFile()"
     >
       <img
-        [src]="imagePreview() || 'assets/logo.svg'"
+        [src]="regService.imagePreview()"
         alt="selectFile"
         class="h-full w-full object-cover"
       />
@@ -23,16 +24,36 @@
     class="hidden"
     accept="image/*"
     #fileEl
-    (change)="uploadFile($event)"
+    (change)="onFileChange($event)"
   />
 
   <div class="flex flex-col gap-4 md:flex-1 w-full">
-    <input type="text" placeholder="Email" class="form-input" />
-    <input type="text" placeholder="Password" class="form-input" />
+    <input
+      type="text"
+      placeholder="First Name"
+      class="form-input"
+      formControlName="firstName"
+    />
+    <input
+      type="text"
+      placeholder="Last Name"
+      class="form-input"
+      formControlName="lastName"
+    />
   </div>
   <div class="flex flex-col gap-4 md:flex-1 w-full">
-    <input type="text" placeholder="Email" class="form-input" />
-    <input type="text" placeholder="Password" class="form-input" />
+    <input
+      type="text"
+      placeholder="Email"
+      class="form-input"
+      formControlName="email"
+    />
+    <input
+      type="text"
+      placeholder="Password"
+      class="form-input"
+      formControlName="password"
+    />
   </div>
 </div>
 <p class="text-xs md:text-sm text-[#00000091] md:text-end pt-4">
@@ -45,8 +66,8 @@
 <div class="flex justify-end mt-6">
   <button
     class="text-white bg-[#810EA7] py-2 rounded-lg px-8 font-semibold cursor-pointer text-sm"
-    (click)="changeStep()"
     type="button"
+    (click)="regService.activeStep.set(1)"
   >
     Next
   </button>
