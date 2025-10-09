@@ -42,14 +42,4 @@ describe('Step1', () => {
 
     component.onFileChange(event);
   });
-
-  // it('should not call handleFileSelection when no file is selected', () => {
-  //   const event = {
-  //     target: { files: [] },
-  //   } as unknown as Event;
-
-  //   component.onFileChange(event);
-
-  //   expect(mockService.handleFileSelection).not.toHaveBeenCalled();
-  // });
 });
