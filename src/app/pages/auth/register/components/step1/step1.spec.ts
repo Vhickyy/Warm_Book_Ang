@@ -34,12 +34,12 @@ describe('Step1', () => {
     expect(fakeInput.nativeElement.click).toHaveBeenCalled();
   });
 
-  // it('should call handleFileSelection when a file is selected', () => {
-  //   const file = new File(['hello'], 'hello.txt', { type: 'text/plain' });
-  //   const event = {
-  //     target: { files: [file] },
-  //   } as unknown as Event;
+  it('should call handleFileSelection when a file is selected', () => {
+    const file = new File(['hello'], 'hello.txt', { type: 'text/plain' });
+    const event = {
+      target: { files: [file] },
+    } as unknown as Event;
 
-  //   component.onFileChange(event);
-  // });
+    component.onFileChange(event);
+  });
 });
