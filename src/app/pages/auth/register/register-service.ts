@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -11,6 +12,8 @@ export class RegisterService {
   imagePreview = signal<string>('');
 
   private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
+
   registerForm = this.fb.group({
     email: ['', Validators.required],
     firstName: ['', Validators.required],
@@ -30,5 +33,15 @@ export class RegisterService {
       this.imagePreview.set(e.target?.result as string);
     };
     reader.readAsDataURL(file);
+    console.log({ file }, this.selectedFile);
+    const formData = new FormData();
+    formData.append('avatar', file);
+
+    this.http
+      .post('http://localhost:3000/auth/upload-avatar', formData)
+      .subscribe({
+        next: (data) => console.log(data),
+        error: (err) => console.log(err),
+      });
   }
 }
